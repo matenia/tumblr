@@ -4,9 +4,9 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "tumblr-api"
-    gem.summary = %q{Tumblr API wrapper}
-    gem.email = "jeff@kreeftmeijer.nl, matenia@gmail.com"
+    gem.name = "matenia-tumblr-api"
+    gem.summary = %q{Tumblr API wrapper - maintained by matenia}
+    gem.email = "matenia@gmail.com"
     gem.homepage = "http://github.com/matenia/tumblr"
     gem.authors = ["Jeff Kreeftmeijer, Matenia Rossides"]
     gem.add_dependency('httparty')
