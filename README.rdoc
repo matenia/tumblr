@@ -2,11 +2,15 @@
 
 Tumblr is a rails gem that allows you to use the Tumblr API. The idea is that you don't have to worry about HTTP requests, you just want to fetch your posts right? But there's more; you can also create, update and destroy Tumblr posts and do so as railsy as possible.
 
+== This Version
+
+I have updated a few bug fixes from the original gem located at http://github.com/jeffkreeftmeijer/tumblr as there were a few functions that didn't work properly, and updated the installation path for the environment file.
+
 == Installation
 
 To install the gem, put this in your environment file;
 
-  config.gem 'tumblr-api', :source => 'http://gemcutter.org'
+  config.gem "tumblr-api", :lib => 'tumblr', :source => 'http://gemcutter.org'
   
 And install the gem;
 
@@ -74,7 +78,7 @@ Updating posts is a lot like creating posts. The only thing you have to do is pr
 
   post = Tumblr::Post.create(user, :post_id => '12345', :title => 'Tumblr', :body => 'Tumblr is a super awesome rails gem that allows you to use the Tumblr API.')
 
-After a post is successfully updated, Tumblr will return the post's id.
+After a post is successfully updated, the object post is the Tumblr post's id.
 
 == Destroying posts
 
@@ -89,3 +93,10 @@ http://rdoc.info/projects/jeffkreeftmeijer/tumblr
 == Copyright
 
 Copyright (c) 2009 Jeff Kreeftmeijer. See LICENSE for details.
+
+== About Me
+
+I am a sydney based rails enthusiast who enjoys everything ruby. At the moment I would consider myself to be a rails-novice but I'm getting there. Feel free to email me regarding this gem at matenia@gmail.com 
+
+Cheers,
+Matenia
