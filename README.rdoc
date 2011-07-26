@@ -8,6 +8,7 @@ I have updated a few bug fixes from the original gem located at http://github.co
 
 == Installation
 
+=== Rails 2.x
 To install the gem, put this in your environment file;
 
   config.gem "matenia-tumblr-api", :lib => 'tumblr', :source => 'http://gemcutter.org'
@@ -15,6 +16,13 @@ To install the gem, put this in your environment file;
 And install the gem;
 
   rake gems:install
+=== Rails 3
+Include the gem within your gemfile
+
+  gem 'matenia-tumblr-api'
+  
+Don't forget to
+  bundle install
 
 == Authentication
 
@@ -71,6 +79,8 @@ This is an example of a "regular" text post:
   post = Tumblr::Post.create(user, :type => 'regular', :title => 'Tumblr', :body => 'Tumblr is a rails gem that allows you to use the Tumblr API.')
 
 After a post is successfully created, Tumblr will return the newly created post's id.
+
+The `post` item that's returned will consist of an ID. If you would like to save this to your database, please make sure the field type is a string (this has caused me grief in the past)
 
 == Updating posts
 
