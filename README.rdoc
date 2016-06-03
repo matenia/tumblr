@@ -82,6 +82,25 @@ After a post is successfully created, Tumblr will return the newly created post'
 
 The `post` item that's returned will consist of an ID. If you would like to save this to your database, please make sure the field type is a string (this has caused me grief in the past)
 
+Tumblr gem will transform documents preceded by a YAML frontmatter block http://www.yaml.org/.
+
+YAML frontmatter beings with `---` on a single line, followed by YAML, ending with another `---` on a single line, e.g.
+
+  ---
+  type: regular
+  title: "This is my title"
+  date: 2011-09-15 23:00
+  state: draft
+  tags: Ruby, Tumblr
+  ---
+  "And the body goes here"
+
+All YAML parameters are taken from the Tumblr API: http://www.tumblr.com/docs/api
+
+and to create the post just pass the `filepath` alongside the `user` object:
+
+  post = Tumblr::Post.create(user, filepath)
+
 == Updating posts
 
 Updating posts is a lot like creating posts. The only thing you have to do is provide the id of the post you wish to edit (the parameters +type+, +private+ and +format+ are ignored and can be omitted.):

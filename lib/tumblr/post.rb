@@ -105,7 +105,17 @@ class Tumblr
     
     # extracts options from the arguments, converts a user object to :email and :password params and fixes the :post_id/'post-id' issue.
     def self.process_options(*args)
-      options = args.last.is_a?(Hash) ?  args.pop : {}
+      options = {}
+      if args.last.is_a?(Hash)
+        options.merge(args.pop)
+      elsif args.last.is_a?(String) and File.file? args.last
+        doc = IO.read(args.pop)
+        if doc =~ /^(\s*---(.*)---\s*)/m
+          options = YAML.load(Regexp.last_match[2].strip)
+          options[:body] = doc.sub(Regexp.last_match[1],'').strip
+        end
+      end
+      
 
       if((user = args.first).is_a?(Tumblr::User))        
         options = options.merge(
